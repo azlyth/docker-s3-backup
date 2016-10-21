@@ -22,5 +22,5 @@ do
   done
 
   # Upload the backups to S3
-  find /tmp
+  aws s3 cp --recursive $ZIPPED_BUCKET_DIR s3://$BUCKET/
 done
