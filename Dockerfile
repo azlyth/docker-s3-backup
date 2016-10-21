@@ -30,6 +30,5 @@ RUN apk add zip
 ADD overlay /
 
 
-VOLUME /backups
-
-CMD sh /scripts/backup.sh
+# Run cron in the foreground while logging to stderr
+CMD ["crond", "-f", "-L", "8"]
