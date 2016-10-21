@@ -25,8 +25,9 @@ ENV AWS_DEFAULT_REGION    aws-default-region
 # Install packages needed for making backups
 RUN apk add zip
 
-# Add the backup script
-ADD scripts /scripts
+
+# Overlay this project's files onto the filesystem
+ADD overlay /
 
 
 VOLUME /backups
