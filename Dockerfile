@@ -22,13 +22,9 @@ ENV AWS_SECRET_ACCESS_KEY aws-secret-access-key
 ENV AWS_DEFAULT_REGION    aws-default-region
 
 
-# Install packages needed for making backups
-RUN apk add zip
-
-
 # Overlay this project's files onto the filesystem
 ADD overlay /
 
 
-# Run cron in the foreground while logging to stderr
+# Run cron in the foreground
 CMD ["crond", "-f", "-L", "8"]
